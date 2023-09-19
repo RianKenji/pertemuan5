@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,7 +77,15 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
+                ElevatedButton.icon(
+                    onPressed: () async {
+                      final player = AudioPlayer();
+                      await player.play(AssetSource('soundzeta.mp3'));
+                    },
+                  icon: Icon(Icons.speaker),
+                    label: Text('Click Me!'),
+                ),
               ],
             ),
           ),
